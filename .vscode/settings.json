@@ -1,0 +1,27 @@
+{
+    "psi-header.config": {
+        "forceToTop": true,
+        "author": "Valentin Raduti",
+        "authorEmail": "deroude@gmail.com",
+        "company": "Viavi Solutions"
+    },
+    "psi-header.templates": [
+        {
+            "language": "javascript",
+            "template": [
+                "(c)<<company>> <<year>>",
+                "Last modified: <<dateformat('dddd, Do MMMM YYYY h:mm:ss a')>>",
+                "Author: <<author>> (<<authoremail>>>)"
+            ]
+        } ,
+        {
+            "language": "java",
+            "template": [
+                "(c)<<company>> <<year>>",
+                "Last modified: <<dateformat('dddd, Do MMMM YYYY h:mm:ss a')>>",
+                "Author: <<author>> (<<authoremail>>>)"
+            ]
+        }   
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+}
