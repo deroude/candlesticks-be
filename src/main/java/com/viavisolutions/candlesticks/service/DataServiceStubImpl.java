@@ -13,14 +13,18 @@ import java.util.Random;
 import com.viavisolutions.candlesticks.domain.DataBatch;
 import com.viavisolutions.candlesticks.domain.DataPoint;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
  * Stub implementation that returns 50-100 data points of random type and values
- * between 1 and 100
+ * between 1 and 100, with a random delay between 0 and 10 seconds
  */
 @Service
 public class DataServiceStubImpl implements DataService {
+	private static final Logger logger = LoggerFactory.getLogger(DataServiceStubImpl.class);
+
 	private final Random rand = new Random();
 
 	@Override
@@ -36,6 +40,11 @@ public class DataServiceStubImpl implements DataService {
 			points.add(d);
 		}
 		re.setData(points);
+		try {
+			Thread.sleep(this.getRandomInt(0, 10000));
+		} catch (InterruptedException e) {
+			logger.warn("Thread interrupted while waiting");
+		}
 		return re;
 	}
 
